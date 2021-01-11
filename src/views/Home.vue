@@ -2,7 +2,7 @@
   <v-container class="container">
     <div class="bgImg"></div>
     <h1>POKEMON</h1>
-    <h2>Gotta Catch'm All!</h2>
+    <h2>Gotta Catch'em All!</h2>
     <h3 class="mt-10">Whats Your name young pokemon trainer?</h3>
     <v-form @submit.prevent="submit" ref="form" class="form" lazy-validation>
       <div>

@@ -49,7 +49,7 @@
       x-large
       color="success"
       @click="catchThemAll"
-      >Catch'm all!</v-btn
+      >Catch'em!</v-btn
     >
     <v-btn
       id="btn"
