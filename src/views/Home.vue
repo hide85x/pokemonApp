@@ -75,16 +75,19 @@ export default {
   align-self: center;
   justify-content: center;
   margin: auto 10px;
-  padding: 20px;
   width: auto;
+  height:auto;
   .bgImg {
     position: absolute;
     width: 100%;
     height: 100%;
     background-image: url("../assets/img/pngfind.com-pokemon-fire-red-logo-3487022.png");
-    background-position: center;
-    background-size: cover;
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: repeat;
     opacity: 0.2;
+    padding: 0;
+    margin:auto -10px;
   }
   font-size: 2rem;
   h1 {
