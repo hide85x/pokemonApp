@@ -36,11 +36,14 @@ export default {
   data: () => ({
     nickname: "",
     rules: {
-      name:value => {
-        const pattern = /^[a-zA-Z0-9]+$/
-        return pattern.test(value) || 'Only letters and digits, no special characters'
-      } 
-    }
+      name: (value) => {
+        const pattern = /^[a-zA-Z0-9]+$/;
+        return (
+          pattern.test(value) ||
+          "Only letters and digits, no special characters"
+        );
+      },
+    },
   }),
   methods: {
     ...mapActions(["setName"]),
@@ -50,16 +53,15 @@ export default {
     },
   },
   computed: {
-    formIsValid(){
-      console.log(this.nickname)
-              const pattern = /^[a-zA-Z0-9]+$/
+    formIsValid() {
+      const pattern = /^[a-zA-Z0-9]+$/;
 
-      if(!pattern.test(this.nickname)) {
-        return
+      if (!pattern.test(this.nickname)) {
+        return;
       }
-      return this.nickname
-    }
-  }
+      return this.nickname;
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

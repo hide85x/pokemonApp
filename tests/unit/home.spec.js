@@ -25,7 +25,7 @@ describe('Home ' , () => {
             localVue,
             mocks: {
                 $router
-            }
+            },
         })
     });
     it('will render Home component', ()=> {
@@ -35,11 +35,21 @@ describe('Home ' , () => {
        const btn= wrapper.find('#submitBtn')
        expect(btn.attributes().disabled).toBe('true')
     })
-    it('btn should be active when user type something in input field',async ()=> {
+    it('btn should be disabled when user type INcorrect data in input field',async ()=> {
         const btn= await wrapper.find('#submitBtn')
-        wrapper.vm.name="testuser"
+        const input= wrapper.find('.form__input')
+        input.value=await  "@!@#asd"
+
         await flush()
-        console.log(wrapper.vm.name)
+        expect(btn.attributes().disabled).toBe('true')
+    })
+    it('btn should be active when user type correct data in input field',async ()=> {
+        const btn= await wrapper.find('#submitBtn')
+        const input= wrapper.find('.form__input')
+        input.value=await  "testuser"
+
+        wrapper.vm.nickname="testuser"
+        await flush()
         expect(btn.attributes().disabled).toBe(undefined)
     })
 
