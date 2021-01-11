@@ -40,7 +40,7 @@ export default {
         const pattern = /^[a-zA-Z0-9]+$/;
         return (
           pattern.test(value) ||
-          "Only letters and digits, no special characters"
+          "Only letters and digits, no special characters allowed"
         );
       },
     },
