@@ -101,6 +101,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
+    height: 200px;
     &__input {
       width: 300px;
       background-color: rgba(255, 255, 255, 0.336);
