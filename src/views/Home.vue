@@ -9,16 +9,16 @@
         <v-text-field
           class="form__input mt-12"
           outlined
-          v-model="name"
-          label="Your Name"
-          :placeholder="error ? 'field is required!' : 'Type Your name here'"
+          :rules="[rules.name]"
+          v-model="nickname"
+          label="Your nickname"
           required
         ></v-text-field>
       </div>
       <v-btn
         id="submitBtn"
-        :disabled="!name.length"
         color="#0055dd"
+        :disabled="!formIsValid"
         class="mx-auto white--text"
         type="submit"
       >
@@ -34,16 +34,32 @@ export default {
   name: "HelloWorld",
 
   data: () => ({
-    name: "",
-    error: true,
+    nickname: "",
+    rules: {
+      name:value => {
+        const pattern = /^[a-zA-Z0-9]+$/
+        return pattern.test(value) || 'Only letters and digits, no special characters'
+      } 
+    }
   }),
   methods: {
     ...mapActions(["setName"]),
-    submit(name) {
-      this.$store.dispatch("setName", this.name);
+    submit(nickname) {
+      this.$store.dispatch("setName", this.nickname);
       this.$router.push("catch-m-all");
     },
   },
+  computed: {
+    formIsValid(){
+      console.log(this.nickname)
+              const pattern = /^[a-zA-Z0-9]+$/
+
+      if(!pattern.test(this.nickname)) {
+        return
+      }
+      return this.nickname
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -81,7 +97,7 @@ export default {
     flex-direction: column;
     align-items: center;
     &__input {
-      width: 250px;
+      width: 300px;
       background-color: rgba(255, 255, 255, 0.336);
     }
   }
